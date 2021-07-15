@@ -1,7 +1,7 @@
 
 package ejercicio7grupal;
 
-public class Serie {
+public class Serie implements Entregable {
 	// Atributos
 	protected String tituloSerie;
 	protected int numTemporada;
@@ -9,7 +9,9 @@ public class Serie {
 	protected String generoSerie;
 	protected String creador;
 
-	/** Constructor por defecto
+	/**
+	 * Constructor por defecto
+	 * 
 	 * @param tituloSerie
 	 * @param numTemporada
 	 * @param entregado
@@ -24,7 +26,9 @@ public class Serie {
 		this.creador = "";
 	}
 
-	/** Constructor con titulo y creador
+	/**
+	 * Constructor con titulo y creador
+	 * 
 	 * @param tituloSerie
 	 * @param creador
 	 */
@@ -36,8 +40,9 @@ public class Serie {
 		this.creador = creador;
 	}
 
-	/** Constructor con todos los atributos
-	 *  excepto entregado
+	/**
+	 * Constructor con todos los atributos excepto entregado
+	 * 
 	 * @param tituloSerie
 	 * @param numTemporada
 	 * @param generoSerie
@@ -49,6 +54,7 @@ public class Serie {
 		this.generoSerie = generoSerie;
 		this.creador = creador;
 	}
+
 	// Metodos get y set de todos los atributos
 	// excepto entregado
 	public String getTituloSerie() {
@@ -87,5 +93,33 @@ public class Serie {
 	public String toString() {
 		return "Serie [tituloSerie=" + tituloSerie + ", numTemporada=" + numTemporada + ", entregado=" + entregado
 				+ ", generoSerie=" + generoSerie + ", creador=" + creador + "]";
+	}
+
+	@Override
+	public void Entregar() {
+
+	}
+
+	@Override
+	public void Devolver() {
+
+	}
+
+	@Override
+	public boolean isEntregado() {
+
+		return false;
+	}
+
+	@Override
+	public int compareTo(Object a) {
+		Serie serie1 = (Serie) a;
+		if (this.numTemporada > serie1.numTemporada) {
+			return 1;
+		} else if (this.numTemporada < serie1.numTemporada) {
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 }
