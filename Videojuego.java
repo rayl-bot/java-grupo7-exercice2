@@ -1,7 +1,7 @@
 
 public class Videojuego {
 	/***
-	 * Declaracion de las variables de la clase de Videojuegos
+	 * Declaracion de las variables
 	 * 
 	 */
 	protected String titulo, genero, company;
