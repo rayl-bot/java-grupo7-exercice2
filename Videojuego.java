@@ -1,5 +1,6 @@
+package ejercicio7grupal;
 
-public class Videojuego {
+public class Videojuego implements Entregable {
 	/***
 	 * Declaracion de las variables
 	 * 
@@ -7,9 +8,8 @@ public class Videojuego {
 	protected String titulo, genero, company;
 	protected int horasEstimadas;
 	protected boolean entregado;
-	
-	
-	//CONSTRUCTORS
+
+	// CONSTRUCTORS
 	/**
 	 * Constructor por defecto
 	 */
@@ -40,7 +40,7 @@ public class Videojuego {
 	 * @param horasEstimadas
 	 * @param entregado
 	 */
-	public Videojuego(String titulo, String genero, String company, int horasEstimadas, boolean entregado) {
+	public Videojuego(String titulo, String genero, String company, int horasEstimadas) {
 		super();
 		this.titulo = titulo;
 		this.genero = genero;
@@ -48,8 +48,8 @@ public class Videojuego {
 		this.horasEstimadas = horasEstimadas;
 		this.entregado = entregado;
 	}
-	
-	//GETTERS Y SETTERS
+
+	// GETTERS Y SETTERS
 	/**
 	 * @return the titulo
 	 */
@@ -111,5 +111,35 @@ public class Videojuego {
 		return "El videojuego " + titulo + " pertenece al genero " + genero + ", creado por " + company + ", tiene "
 				+ horasEstimadas + " horas de juego estimadas";
 	}
-	
+
+	@Override
+	public void Entregar() {
+		// TODO Auto-generated method stub
+		this.entregado = true;
+	}
+
+	@Override
+	public void Devolver() {
+		// TODO Auto-generated method stub
+		this.entregado = false;
+	}
+
+	@Override
+	public boolean isEntregado() {
+		// TODO Auto-generated method stub
+		return this.entregado;
+	}
+
+	@Override
+	public int compareTo(Object a) {
+		// TODO Auto-generated method stub
+		Videojuego game = (Videojuego) a;
+		if (this.horasEstimadas > game.horasEstimadas)
+			return 1;
+		else if (this.horasEstimadas < game.horasEstimadas)
+			return -1;
+		else
+			return 0;
+	}
+
 }
